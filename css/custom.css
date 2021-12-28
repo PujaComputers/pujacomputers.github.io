@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+
+
+
+/* Service Start */
+
+.secTitle{
+    text-align: center;
+    font-size: 2.5em;
+}
+.secSubTitle{
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 80px;
+}
+.devider{
+    border-top: 3px solid #6e00ff;
+    width:85%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.serviceBox{
+    text-align: center;
+    background: #fff;
+    padding: 40px;
+    margin: 15px 0;
+    box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+    border: 1px solid #EFF2F7;
+hover:focus-visivle;
+}
+.serviceBox img{
+    width: 80px;
+    margin-bottom: 15px;
+}
+/* Service End */
+
+.tr{ hov:focus-visivle;}
+
+#rowFocus:hover {
+  background-color: yellow;
+  hov:focus-visivle;
+}
+
+.tr{ hov:focus-within;}
+#services.table.rowFocus{ hov:focus-visivle;}
+
+
+.serviceBox:hover {
+  background-color:gold;
+  hov:focus-visivle;
+}
+
