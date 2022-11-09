@@ -61,25 +61,18 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item active">
-                        <a class="nav-link" href="#hero">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="index.html">About</a>
                       </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
+                        <a class="nav-link" href="service.html">Services</a>
                       </li>
+
+                   
                       <li class="nav-item">
-                        <a class="nav-link" href="#features">Features</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">Testimonials</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#faqs">FAQs</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact us</a>
+                        <a class="nav-link" href="contact.html">Contact</a>
                       </li>
                     </ul>
                 </div>
@@ -205,137 +198,289 @@
 	  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.9724088191842!2d89.13924521374804!3d25.06892428395602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fcf32fadc53171%3A0x2a5743d3c92d0abe!2sPuja%20Computers!5e0!3m2!1sen!2sbd!4v1640679060384!5m2!1sen!2sbd" width="100%" height="380" style="border:1px;" allowfullscreen="" loading="lazy"></iframe>
        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3736489.7218514383!2d90.21589792292741!3d23.857125486636733!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1506502314230" width="100%" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>-->
       </div>
-
-      <div class="col-md-5">
-          <h4><strong>Your Message</strong></h4>
-        <form>
+	  
+	  <!--
+	<div class="col-md-5">
+          <h4><strong>Connected Message</strong></h4>
+        
+		<form class="gform" action="https://script.google.com/macros/s/AKfycbxmndQsJxMiPbzLctBdPRt7K8LZ8r2LbtnTfuqC-LSmJMXN8Ht9JXbFYXPQm7QjYb-q/exec" method="POST" enctype="multipart/form-data" name="EmailForm">
           <div class="form-group">
-            <input type="text" class="form-control" name="" value="" placeholder="Name">
+            <input type="text" class="form-control" name="name" value="" placeholder="Name"  required="required">
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" name="" value="" placeholder="E-mail">
+            <input type="email" class="form-control" name="email" value="" placeholder="E-mail"  required="required">
           </div>
           <div class="form-group">
-            <input type="tel" class="form-control" name="" value="" placeholder="Phone">
+            <input type="tel" class="form-control" name="phone" value="" placeholder="Phone"  required="required">
           </div>
           <div class="form-group">
-            <textarea class="form-control" name="" rows="3" placeholder="Message"></textarea>
+            <textarea class="form-control" name="message" rows="3" placeholder="Message"></textarea>
           </div>
-		  <!--
-          <button class="btn btn-default" type="submit" name="button">
-              <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Submit
-          </button>
-		  -->
+		  
+		  <div style="display:none" class="thankyou_message">
+		 
+			 <h2><em>Thanks</em> for connecting us! We will get back to you soon!
+			 </h2>
+		</div>
 		   <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+		
+
+    </div>
+	-->
+
+      <div class="col-md-5">
+          <h4><strong>Connected Message</strong></h4>
+      
+		<form class="gform" onSubmit="return formValidation();" action="https://script.google.com/macros/s/AKfycbxmndQsJxMiPbzLctBdPRt7K8LZ8r2LbtnTfuqC-LSmJMXN8Ht9JXbFYXPQm7QjYb-q/exec" method="POST" enctype="multipart/form-data" name="EmailForm">
+          <div class="form-group">
+            <input type="text"  pattern="[A-Za-z]{3,120}$"  class="form-control" name="name" value="" placeholder="Name" required="required">
+          </div>
+          <div class="form-group">
+            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" name="email" value="" placeholder="E-mail" required="required">
+          </div>
+          <div class="form-group">
+            <input type="tel" pattern="[0]{1}[0-9]{10}" class="form-control" name="phone" value="" placeholder="Phone" required="required">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" name="message" rows="3" placeholder="Message"></textarea>
+          </div>
+		  
+		  
+		<div style="display:none" class="thankyou_message">
+
+			 <h2 class="text-success"><em>Thanks</em> for connecting us! We will get back as soon as possible!
+			 </h2>
+		</div>
+	
+		   <button type="submit" name="submit"  class="btn btn-primary">Submit</button>
+        </form>
       </div>
+	  
     </div>
   </div>
 </section>
-	
+
+<script>
+	  method: "GET",
+	  url: "script.gs",
+	  dataType: "script"
+	});
+	</script>
+<script data-cfasync="false" type="text/javascript" src="form-submission-handler.js"></script>
+<script>
+(function() {
+  // get all data in form and return object
+  function getFormData(form) {
+    var elements = form.elements;
+    var honeypot;
+
+    var fields = Object.keys(elements).filter(function(k) {
+      if (elements[k].name === "honeypot") {
+        honeypot = elements[k].value;
+        return false;
+      }
+      return true;
+    }).map(function(k) {
+      if(elements[k].name !== undefined) {
+        return elements[k].name;
+      // special case for Edge's html collection
+      }else if(elements[k].length > 0){
+        return elements[k].item(0).name;
+      }
+    }).filter(function(item, pos, self) {
+      return self.indexOf(item) == pos && item;
+    });
+
+    var formData = {};
+    fields.forEach(function(name){
+      var element = elements[name];
+      
+      // singular form elements just have one value
+      formData[name] = element.value;
+
+      // when our element has multiple items, get their values
+      if (element.length) {
+        var data = [];
+        for (var i = 0; i < element.length; i++) {
+          var item = element.item(i);
+          if (item.checked || item.selected) {
+            data.push(item.value);
+          }
+        }
+        formData[name] = data.join(', ');
+      }
+    });
+
+    // add form-specific values into the data
+    formData.formDataNameOrder = JSON.stringify(fields);
+    formData.formGoogleSheetName = form.dataset.sheet || "responses"; // default sheet name
+    formData.formGoogleSendEmail
+      = form.dataset.email || ""; // no email by default
+
+    return {data: formData, honeypot: honeypot};
+  }
+
+  function handleFormSubmit(event) {  // handles form submit without any jquery
+    event.preventDefault();           // we are submitting via xhr below
+    var form = event.target;
+    var formData = getFormData(form);
+    var data = formData.data;
+
+    // If a honeypot field is filled, assume it was done so by a spam bot.
+    if (formData.honeypot) {
+      return false;
+    }
+
+    disableAllButtons(form);
+    var url = form.action;
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url);
+    // xhr.withCredentials = true;
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          form.reset();
+          var formElements = form.querySelector(".form-elements")
+          if (formElements) {
+            formElements.style.display = "none"; // hide form
+          }
+          var thankYouMessage = form.querySelector(".thankyou_message");
+          if (thankYouMessage) {
+            thankYouMessage.style.display = "block";
+          }
+        }
+    };
+    // url encode form data for sending as post data
+    var encoded = Object.keys(data).map(function(k) {
+        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+    }).join('&');
+    xhr.send(encoded);
+  }
+  
+  function loaded() {
+    // bind to the submit event of our form
+    var forms = document.querySelectorAll("form.gform");
+    for (var i = 0; i < forms.length; i++) {
+      forms[i].addEventListener("submit", handleFormSubmit, false);
+    }
+  };
+  document.addEventListener("DOMContentLoaded", loaded, false);
+
+  function disableAllButtons(form) {
+    var buttons = form.querySelectorAll("button");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].disabled = true;
+    }
+  }
+})();
+
+</script>
+
+
 
 
 	<footer class="border-top">   
 		<section style="border-top: 1px solid blue;background-color:#F0F3F4;"></section>
 
 		<!-- Footer -->
-		<footer class="text-center text-lg-start bg-light text-muted">
-		  <!-- Section: Social media -->
-		  <section
-			class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-		  >
-			<!-- Left -->
-			<div class="me-5 d-none d-lg-block">
-			  <span>Get connected with social networks:</span>
-			</div>
-			<!-- Left -->
-
-			<!-- Right -->
-			<div>
-				<a target="_blank" href="https://web.facebook.com/PujaComputers-2042983669088702/?_rdc=1&_rdr" class="btn btn-primary" style="background-color: #3b5998;" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
-				<!-- Linkedin -->
-				<a  target="_blank" href="https://www.linkedin.com/company/pujacomputers"  class="btn btn-primary" style="background-color: #0082ca;" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
-				
-				<!-- Youtube -->
-				<a target="_blank" href="https://www.youtube.com/channel/UC8RW6Z-UOj3121cD8GNlrvQ" class="btn btn-primary" style="background-color: #ed302f;" href="#!" role="button"><i class="fab fa-youtube"></i></a>
-			
-			</div>
-			<!-- Right -->
-		  </section>
-		  <!-- Section: Social media -->
-
-		  <!-- Section: Links  -->
-		  <section class="">
-			<div class="container text-center text-md-start mt-5">
-			  <!-- Grid row -->
-			  <div class="row mt-3 ">
-				<!-- Grid column -->
-				<div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
-				  <!-- Content -->
-				  <h6 class="text-uppercase fw-bold mb-4">
-					<!--<i class="fas fa-gem me-3"></i>-->
-					<a href="index.html"><img src="images/logo.png" style="width:35px;height:35px;;"></img></a>
-					Puja Computers
-				  </h6>
-				  <p style="text-align:justify;">
-					Being a highly process driven company, we undergo robust quality testing to ensure flawless, round the clock, and world-class performance.
-				  </p>
-				</div>
-				<!-- Grid column -->
-
-		 
-
-				<!-- Grid column -->
-				<div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-4">
-				  <!-- Links -->
-				  <h6 class="text-uppercase fw-bold mb-4">
-					Quick links
-				  </h6>
-			  <ul>  <a href="#" class="text-reset">Home</a></ul>
-			  <ul>  <a href="#about" class="text-reset">About Us</a></ul>
-			  <ul>  <a href="#services" class="text-reset">Services</a></ul>
-			  <ul>  <a href="#features" class="text-reset">Feature</a></ul>
-			  <ul>  <a href="#contact" class="text-reset">Contact</a></ul>
-				  
-				</div>
-				<!-- Grid column -->
-
-				<!-- Grid column -->
-				<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-				  <!-- Links -->
-				  <h6 class="text-uppercase fw-bold mb-4">
-				  <a  href="#contact">Contact us</a>
-					
-				  </h6>
-				  <p><i class="fas fa-home me-3"></i> Nishchinta Bazar,Khetlal-Joypurhat</p>
-				  <p>
-					<i class="fas fa-envelope me-3"></i>
-					<a href="mailto:pujacomputers7@gmail.com">pujacomputers7@gmail.com</a>
-				  </p>
-				  <p><i class="fas fa-phone me-3"></i><a href="tel://+8801780567750">+880 1780 567750</a></p>
-				  <p><i class="fas fa-mobile me-3"></i><a href="tel://+8801983202360">+880 1983 202360</a></p>
-				</div>
-				<!-- Grid column -->
-			  </div>
-			  <!-- Grid row -->
-			</div>
-		  </section>
-		  <!-- Section: Links  -->
-		  
-		  		  <!-- Copyright -->
-		  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-
-			<center><a class="text-reset fw-bold"  href="">Copyright &copy; 2021.Puja Computers</a></center>
+		    <!-- Footer Start -->
+    <footer id="footer">
 	
-		  </div>
-		  <!-- Copyright -->
-		  
+			  <!-- Grid container -->
+			<div class="container">
+			  <!-- Section: Links -->
+			  <section class="mt-2">
+				<!-- Grid row-->
+				<div class="row text-center d-flex justify-content-center pt-2">
+				  <!-- Grid column -->
+				  <div class="col-md-2">
+					<h6 class="text-uppercase font-weight-bold">
+					  <a href="index.html" class="text-white">Home</a>
+					</h6>
+				  </div>
+				  <!-- Grid column -->
+
+				  <!-- Grid column -->
+				  <div class="col-md-2">
+					<h6 class="text-uppercase font-weight-bold">
+					  <a href="index.html" class="text-white">About</a>
+					</h6>
+				  </div>
+				  <!-- Grid column -->
+
+				  <!-- Grid column -->
+				  <div class="col-md-2">
+					<h6 class="text-uppercase font-weight-bold">
+					  <a href="service.html" class="text-white">Services</a>
+					</h6>
+				  </div>
+				  <!-- Grid column -->
+
+				  <!-- Grid column -->
+				  <div class="col-md-2">
+					<h6 class="text-uppercase font-weight-bold">
+					  <a href="#!" class="text-white">Help</a>
+					</h6>
+				  </div>
+				  <!-- Grid column -->
+
+				  <!-- Grid column -->
+				  <div class="col-md-2">
+					<h6 class="text-uppercase font-weight-bold">
+					  <a href="contact.html" class="text-white">Contact</a>
+					</h6>
+				  </div>
+				  <!-- Grid column -->
+				</div>
+				<!-- Grid row-->
+			  </section>
+			  <!-- Section: Links -->
+
+			  <hr class="my-3" />
+
+			</div>
+	
+	
+        <div class="container p-2 " style="border-top: 1px solid green">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                   <p class="copyright">&copy; 2022 Your-Portfoloi - Connected with social networks</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="socialMedia">
+                        <ul class="ml-auto">
+                            <li><a target="_blank"  href="https://web.facebook.com/PujaComputers-2042983669088702/?_rdc=1&_rdr"><i class="fab fa-facebook"></i></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/company/pujacomputers"><i class="fab fa-linkedin"></i></a></li>
+                            <li><a target="_blank" href="https://www.youtube.com/channel/UC8RW6Z-UOj3121cD8GNlrvQ"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li><a target="_blank" href=""><i class="fab fa-skype"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+	
 		
+		<!-- Footer -->
+   </footer>
+        <!-- /footer -->
+
+    
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+
+    <!-- Footer end -->
+	
+	
 		  <button onclick="topFunction()" id="myBtn"  title="Go to top" class="fa fa-chevron-up" ></button>
 		
-		  <a id="whatsappBtn" target="_blank"  href="https://api.whatsapp.com/send?phone=8801780567750&text=Hello this is the starting message"  style="display: table; font-family: sans-serif; text-decoration: none; margin: 1em auto; color: #fff; font-size: 0.9em; padding: 1em 2em 1em 3.5em; border-radius: 2em; font-weight: bold; background: #25d366 url('https://tochat.be/click-to-chat-directory/css/whatsapp.svg') no-repeat 1.5em center; background-size: 1.6em;">WhatsApp Message</a>
-		  <a id="whatsappBtn" target="_blank"  href="whatsappto:8801780567750"  style="display: table; font-family: sans-serif; text-decoration: none; margin: 1em auto; color: #fff; font-size: 0.9em; padding: 1em 2em 1em 3.5em; border-radius: 2em; font-weight: bold; background: #25d366 url('https://tochat.be/click-to-chat-directory/css/whatsapp.svg') no-repeat 1.5em center; background-size: 1.6em;">WhatsApp Message</a>
-		 
+		  <a id="whatsappBtn" target="_blank"  href="https://api.whatsapp.com/send?phone=8801780567750&text=Hello. This is the starting message"  style="display: table; font-family: sans-serif; text-decoration: none; margin: 1em auto; color: #fff; font-size: 0.9em; padding: 1em 2em 1em 3.5em; border-radius: 2em; font-weight: bold; background: #25d366 url('https://tochat.be/click-to-chat-directory/css/whatsapp.svg') no-repeat 1.5em center; background-size: 1.6em;">WhatsApp Message</a>
+		  <!--<a id="whatsappBtn" target="_blank" class="bi bi-whatsapp" href="https://api.whatsapp.com/send?phone=8801780567750&text=Hello. This is the starting message">WhatsApp Message</a>-->
+	
 			<script>
 			//Get the button
 			var mybutton = document.getElementById("myBtn");
@@ -357,11 +502,19 @@
 			  document.documentElement.scrollTop = 0;
 			}
 			</script>
+			<!-- Footer end -->
 
-		</footer>
-		<!-- Footer -->
-   </footer>
-        <!-- /footer -->
+
+    
+		<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<script src="js/custom.js"></script>
+    
+	
+
+
+
 
     
 
